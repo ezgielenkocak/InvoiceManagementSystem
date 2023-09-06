@@ -1,0 +1,32 @@
+
+JWT:
+Belirli bir amacý ve süresi olan bir eriþim belirteci (access token) oluþturmak için kullanýlan bir standarddýr. 
+Bu kodlar, bir güvenlik anahtarý (security key) ve imza oluþturmak için bir algoritma kullanarak
+bir eriþim belirteci (access token) oluþturmak için gereken bileþenleri içerir. 
+
+
+1-) """SecurityKeyHelper sýnýfý;"""
+Bir SecurityKey nesnesi oluþturmak için kullanýlýr. Bu, bir simetrik anahtar kullanýlarak yapýlýr ve bir dize þeklinde sunulur.
+
+2-)"""SigningCredentialsHelper sýnýfý;"""
+Bir SigningCredentials nesnesi oluþturmak için kullanýlýr. Bu, bir SecurityKey nesnesi ve bir imzalama algoritmasý kullanýlarak yapýlýr. 
+Bu sýnýf, HMAC-SHA256 algoritmasý kullanýlarak bir imza oluþturur.
+
+3-)"""TokenOptions sýnýfý;"""
+JWT ayarlarýný içerir. Bu, JWT'nin hangi amaçla ve kim tarafýndan oluþturulduðunu belirler. Bu sýnýfta, alýcýnýn (audience) kimliði, 
+verenin (issuer) kimliði, eriþim belirteci geçerlilik süresi ve güvenlik anahtarý (security key) tanýmlanýr.
+
+4-)"""AccessToken sýnýfý;"""
+Oluþturulan eriþim belirtecinin özelliklerini içerir. Bu özellikler, eriþim belirtecinin kendisi, geçerlilik süresi ve son kullanma tarihi ile ilgilidir.
+
+
+5-)"""ITokenHelper arabiriminde;"""
+Bir User nesnesi ve bir OperationClaim listesi kullanarak bir eriþim belirteci (access token) oluþturmak için CreateToken metodu tanýmlanýr.
+Ayrýca, bir kullanýcý için yeni bir eriþim belirteci (access token) oluþturmak için CreateNewToken metodu tanýmlanýr.
+Bu metot, bir SessionAddDto nesnesi döndürür ve yeni bir eriþim belirteci (access token) oluþturulur.
+
+
+6-)"""SessionAddDto sýnýfý;"""
+Bir eriþim belirteci (access token) ve kullanýcýnýn diðer bilgilerini içerir. 
+Bu, kullanýcýnýn tarayýcý türü, IP adresi ve diðer bilgilerini içeren bir kullanýcý oturumu nesnesi oluþturmak için kullanýlýr.
+

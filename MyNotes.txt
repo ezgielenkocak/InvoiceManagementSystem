@@ -1,0 +1,3 @@
+
+Dto olursa=>body olur
+Metoda dtosuz direkt parametre geçersen => input gibi olur, body oluþmaz
